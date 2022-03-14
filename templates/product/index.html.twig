@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Produits - Tout Pour La Gratte{% endblock %}
+
+{% block body %}
+<div class='container-list' style='background-image: url(../uploads/background.png'>
+    <div class='row'>
+        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3 liste'>
+            <h3 class='title'>Filtre</h3>
+            {{ form(form) }}
+        </div>
+        <div id='tabAjax' class='col-xl-9 col-lg-9 col-md-9 col-sm-9 col-9 liste'>
+            <h1 class='title'>Liste des produits</h1>
+            <div class='row'>
+            {% for product in products %}
+        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 liste'>
+                    <table class='table table-bordered'>
+                        <tr>
+                            <td id='img'><a href='{{ path('product', { 'slug' : product.slug}) }}'><img src='uploads/{{ product.illustration }}' alt='{{ product.name }}' height='200px'></a></td>
+                            <td class='name'>{{ product.name }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ product.category}}</td>
+                            <td>{{ (product.price / 100)|number_format(2, ',', ' ')}} €</td>
+                        </tr>
+                    </table>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

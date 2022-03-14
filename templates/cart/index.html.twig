@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Panier - Tout Pour La gratte{% endblock %}
+
+{% block body %}
+<div class='container-list'>
+    <h2 class='title'>Mon Panier</h2>
+    <div class='col-lg-10 list'>
+    {% if cart|length > 0 %}
+    
+        <table class='table'>
+            <thead>
+                <tr>
+                    <th colspan='2'>Produit</th>
+                    <th>Quantité</th>
+                    <th>Prix</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            {% set total = null %}
+            {% for product in cart %}
+                <tr>
+                    <td id='img'><img src='uploads/{{ product.product.illustration }}' alt='{{ product.product.name }}' height='100px'></td>
+                    <td class='name'>{{ product.product.name }}</td>
+                    <td>
+                        <a href='{{ path('decrease_to_cart', {'id': product.product.id}) }}'><img src='{{ asset('uploads/moins.png') }}' alt='Retirer un produit' height='12px'></a>  X {{ product.quantity }}  <a href='{{ path('add_to_cart', {'id': product.product.id}) }}'><img src='{{ asset('uploads/plus.png') }}' alt='Ajouter un produit' height='12px'></a>
+                    </td>
+                    <td>{{ (product.product.price / 100)|number_format(2, ',', ' ')}} €</td>
+                    <td>{{ (product.product.price * product.quantity / 100)|number_format(2, ',', ' ') }}</td>
+                    <td><a href='{{ path('delete_to_cart', {'id': product.product.id}) }}'><img src='{{ asset('uploads/corbeille.png') }}' alt='Supprimer mon produit'></a></td>
+                </tr>
+                {% set total = total + (product.product.price * product.quantity) %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h3 class='title'>Nombre de produits : {{ cart|length }}<h3>
+        <h3 class='title'>Total de mon panier : {{ (total / 100)|number_format(2, ',', ' ') }}<h3>
+        <br><br>
+        <a href='' class='submit'>Valider mon panier</a>
+    </div>
+    {% else %}
+        <h4 class='title'>Votre panier est vide</h4>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{product.name}} - Tout Pour La Gratte{% endblock %}
+
+{% block body %}
+<div class='container-list'>
+    <div class='row'>
+        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 liste'>
+            <img src='../uploads/{{ product.illustration }}' alt='{{ product.name }}' class='img-fluid' height='200px'>
+        </div>
+        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 liste'>
+            <h3 class='title'>{{product.name}}</h3>
+            <h3 class='title'>Prix: {{ (product.price / 100)|number_format(2, ',', ' ')}} €</h3>
+            <h3 class='title'>Stock: {{ product.stock}}</h3>
+            <br>
+            <a href='{{ path('add_to_cart', {'id': product.id}) }}' type='submit' class='action'>Ajouter au panier</a>
+        
+        </div>
+    </div>
+</div>
+{% endblock %}
