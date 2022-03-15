@@ -161,11 +161,21 @@ select {
     text-decoration: none;
 }
 
-.submit:hover, .action:hover {
+.add {
+    font-weight: bold;
+    background-color: #0066ff;
+    color: white;
+    font-size: 15px;
+    padding: 10px 10px;
+    margin: 25px;
+    border: 1px solid #0066ff;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.submit:hover, .action:hover, .add:hover {
     background-color: white;
     color: #0066ff;
-    border: 1px solid #0066ff;
-    text-decoration: none;
 }
 
 .action {
