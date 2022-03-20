@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
+{% block title %}Connexion - Tout Pour La Gratte{% endblock %}
 
 {% block body %}
 <div class="container-list">
@@ -48,6 +48,7 @@
                 <input class="submit" type="submit" value="Connexion">  
             </div>
         </div>
+        <p>Ou souhaitez-vous <a href='{{ path('register') }}'>créer un compte?</p>
     </form>
 </div>
 {% endblock %}

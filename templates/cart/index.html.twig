@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mon Panier - Tout Pour La gratte{% endblock %}
+{% block title %}Mon Panier - Tout Pour La Gratte{% endblock %}
 
 {% block body %}
 <div class='container-list'>
@@ -37,10 +37,10 @@
         </table>
     </div>
     <div>
-        <h3 class='title'>Nombre de produits : {{ cart|length }}<h3>
-        <h3 class='title'>Total de mon panier : {{ (total / 100)|number_format(2, ',', ' ') }}<h3>
+        <h4 class='title'>Nombre de produits : {{ cart|length }}<h4>
+        <h4 class='title'>Total de mon panier : {{ (total / 100)|number_format(2, ',', ' ') }}<h4>
         <br><br>
-        <a href='' class='submit'>Valider mon panier</a>
+        <a href='{{ path('order') }}' class='submit'>Valider mon panier</a>
     </div>
     {% else %}
         <h4 class='title'>Votre panier est vide</h4>
