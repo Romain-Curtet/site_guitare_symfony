@@ -19,6 +19,16 @@ class OrderRepository extends ServiceEntityRepository
         parent::__construct($registry, Order::class);
     }
 
+    public function findSuccessOrders($user)
+    {
+        $qb = $this->createQueryBuilder('o')
+        ->andwhere('o.isPaid = 1')
+        ->andwhere('o.user = :user')
+        ->setParameter(':user', $user)
+        ->orderBy('o.id', 'DESC');
+        return $qb->getQuery()->getResult();
+    }
+
     // /**
     //  * @return Order[] Returns an array of Order objects
     //  */

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur de paiement - Tout Pour La Gratte{% endblock %}
+
+{% block body %}
+<div class='container-list'>
+    <h2 class='title'>Erreur de paiement</h2>
+    <h5 class='title'>Bonjour {{ order.user.firstname }} {{ order.user.lastname }}</h5><br>
+    <p>Il semblerait que votre paiement ait échoué pour votre commande  <strong>n°{{ order.reference }}</strong>.<br>
+        Une confirmation d'erreur vient de vous être envoyée par email à l'adresse <strong>{{ order.user.email }}</strong>.
+    </p>
+    <br><br>
+    <a href='{{ path('order') }}' class='submit'>Réessayer le paiement</a>
+</div>
+{% endblock %}

@@ -4,8 +4,8 @@ namespace App\Controller;
 
 use App\Classe\Cart;
 use App\Entity\Order;
-use App\Entity\OrderDetails;
 use App\Form\OrderType;
+use App\Entity\OrderDetails;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,7 +34,7 @@ class OrderController extends AbstractController
     }
 
     /**
-     * @Route("/commande/recapitulatif", name="order_recap", methods{'POST'})
+     * @Route("/commande/recapitulatif", name="order_recap", methods={"POST"})
      */
     public function add(Cart $cart, Request $request, EntityManagerInterface $manager, ProductRepository $productRepository): Response
     {
@@ -56,6 +56,8 @@ class OrderController extends AbstractController
             $delivery_content .= '<br>'.$delivery->getAddress().'<br>'.$delivery->getPostal().' '.$delivery->getCity().'<br>'.$delivery->getCountry();
 
             $order = new Order();
+            $reference = $date->format('dmY').'-'.uniqid();
+            $order->setReference($reference);
             $order->setUser($this->getUser());
             $order->setCreatedAt($date);
             $order->setCarrierName($carriers->getName());
@@ -73,12 +75,14 @@ class OrderController extends AbstractController
                 $orderDetails->setTotal($product['product']->getPrice() * $product['quantity']);
                 $manager->persist($orderDetails);
             }
+
             $manager->flush();
 
             return $this->render('order/add.html.twig', [
                 'cart' => $cart->getFull($productRepository),
                 'carrier' => $carriers,
-                'delivery' =>$delivery_content,
+                'delivery' => $delivery_content,
+                'reference' => $order->getReference(),
             ]);
 
             return $this->redirectToRoute('cart');

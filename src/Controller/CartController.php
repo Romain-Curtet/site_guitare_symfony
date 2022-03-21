@@ -27,7 +27,7 @@ class CartController extends AbstractController
     {
         $cart->add($id);
 
-        return $this->redirectToRoute('cart');
+        return $this->redirectToRoute('products');
     }
 
     /**

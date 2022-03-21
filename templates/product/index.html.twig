@@ -14,7 +14,7 @@
             <div class='row'>
             {% for product in products %}
         <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 liste'>
-                    <table class='table table-bordered'>
+                    <table class='table'>
                         <tr>
                             <td id='img'><a href='{{ path('product', { 'slug' : product.slug}) }}'><img src='uploads/{{ product.illustration }}' alt='{{ product.name }}' height='200px'></a></td>
                             <td class='name'>{{ product.name }}</td>
