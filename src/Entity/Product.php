@@ -48,6 +48,11 @@ class Product
      */
     private $stock;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isBest;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,6 +126,18 @@ class Product
     public function setStock(int $stock): self
     {
         $this->stock = $stock;
+
+        return $this;
+    }
+
+    public function getIsBest(): ?bool
+    {
+        return $this->isBest;
+    }
+
+    public function setIsBest(bool $isBest): self
+    {
+        $this->isBest = $isBest;
 
         return $this;
     }

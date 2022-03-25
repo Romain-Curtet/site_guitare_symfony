@@ -24,11 +24,11 @@
                     <td id='img'><img src='uploads/{{ product.product.illustration }}' alt='{{ product.product.name }}' height='100px'></td>
                     <td class='name'>{{ product.product.name }}</td>
                     <td>
-                        <a href='{{ path('decrease_to_cart', {'id': product.product.id}) }}'><img src='{{ asset('uploads/moins.png') }}' alt='Retirer un produit' height='12px'></a>  X {{ product.quantity }}  <a href='{{ path('add_to_cart', {'id': product.product.id}) }}'><img src='{{ asset('uploads/plus.png') }}' alt='Ajouter un produit' height='12px'></a>
+                        <a href='{{ path('decrease_to_cart', {'id': product.product.id}) }}'><img src='{{ asset('img/moins.png') }}' alt='Retirer un produit' height='12px'></a>  X {{ product.quantity }}  <a href='{{ path('add_to_cart', {'id': product.product.id}) }}'><img src='{{ asset('img/plus.png') }}' alt='Ajouter un produit' height='12px'></a>
                     </td>
                     <td>{{ (product.product.price / 100)|number_format(2, ',', ' ')}} €</td>
                     <td>{{ (product.product.price * product.quantity / 100)|number_format(2, ',', ' ') }}</td>
-                    <td><a href='{{ path('delete_to_cart', {'id': product.product.id}) }}'><img src='{{ asset('uploads/corbeille.png') }}' alt='Supprimer mon produit'></a></td>
+                    <td><a href='{{ path('delete_to_cart', {'id': product.product.id}) }}'><img src='{{ asset('img/corbeille.png') }}' alt='Supprimer mon produit'></a></td>
                 </tr>
                 {% set total = total + (product.product.price * product.quantity) %}
                 {% endfor %}

@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 
 class ProductCrudController extends AbstractCrudController
 {
@@ -29,6 +30,7 @@ class ProductCrudController extends AbstractCrudController
                 ->setUploadDir('public/uploads')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false),
+            BooleanField::new('isBest'),
             MoneyField::new('price')
                 ->setNumDecimals(2)
                 ->setStoredAsCents()

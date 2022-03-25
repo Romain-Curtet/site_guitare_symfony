@@ -17,5 +17,14 @@
         
         </div>
     </div>
+    <hr>
+    <h3 class='title'>Nos meilleurs ventes</h3>
+    <div class="row">
+        {% for product in products %}
+            <div class='col-md-4 liste'>
+                {% include "product/single_product.html.twig" %}
+            </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Classe\Cart;
+use App\Classe\Mail;
 use App\Repository\OrderRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,10 +23,14 @@ class OrderSuccessController extends AbstractController
             return $this->redirectToRoute('home');
         }
         
-        if (!$order->getIsPaid()) {
+        if ($order->getState() == 0) {
            $cart->remove();
-           $order->setIsPaid(1);
+           $order->setState(1);
            $manager->flush();
+
+            $mail = new Mail();
+            $content = "Bonjour ".$order->getUser()->getFirstname()."<br>Merci pour votre commande";
+            $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Votre commande Tout Pour La Gratte est bien validée', $content);
         }
 
         return $this->render('order_success/index.html.twig', [

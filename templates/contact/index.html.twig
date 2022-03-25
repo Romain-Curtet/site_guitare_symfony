@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous contacter - Tout Pour La Gratte{% endblock %}
+
+{% block body %}
+<div class="container-list">
+    <div class='row'>
+        <div class='col-md-4' style='background-color: #e5f0ff'>
+            <strong>Tout Pour La Gratte</strong><hr>
+            06.00.00.00.00<br>
+            56 rue invisible, 69000 LYON<br>
+            contact@toutpourlagratte.com<br>
+        </div>
+        <div class='col-md-8'>
+        <h1 class='title'>Nous contacter</h1>
+        {% for message in app.flashes('notice') %}
+            <div class='notification'>{{ message }}</div>
+        {% endfor %}
+            {{ form_start(form, {'attr': {'class':'contact-form'}}) }}
+            <div class='row'>
+                <div class='col-md-12'>
+                    {{ form_label(form.firstname, 'Prénom', {'label_attr': {'class':'login'}}) }}
+                    {{ form_widget(form.firstname, {'attr': {'class':'form-control'}}) }}
+                    <div class='error'>
+                        {{ form_errors(form.firstname) }}
+                    </div>
+                </div>
+                <div class='col-md-12'>
+                    {{ form_label(form.lastname, 'Nom', {'label_attr': {'class':'login'}}) }}
+                    {{ form_widget(form.lastname, {'attr': {'class':'form-control'}}) }}
+                    <div class='error'>
+                        {{ form_errors(form.lastname) }}
+                    </div>
+                </div>
+                <div class='col-md-12'>
+                    {{ form_label(form.email, 'Email', {'label_attr': {'class':'email'}}) }}
+                    {{ form_widget(form.email, {'attr': {'class':'form-control'}}) }}
+                    <div class='error'>
+                        {{ form_errors(form.email) }}
+                    </div>
+                </div>
+                <div class='col-md-12'>
+                    {{ form_label(form.content, 'Message', {'label_attr': {'class':'login'}}) }}
+                    {{ form_widget(form.content, {'attr': {'class':'form-control', 'style':'height:120px'}}) }}
+                    <div class='error'>
+                        {{ form_errors(form.content) }}
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    {{ form_widget(form.submit, {'attr': {'class':'submit'}}) }}
+                </div>
+                {{ form_rest(form) }}
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+{% endblock %}

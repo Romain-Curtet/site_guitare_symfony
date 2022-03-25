@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page introuvable - Tout Pour La Gratte{% endblock %}
+
+{% block body %}
+<div class="container-list">
+    <h2 class="title">Page introuvable</h2>
+    <p>Désolé, cette page ne semble pas être accessible pour le moment</p><br>
+    <a href='{{ path('home') }}' class='submit'>Revenir à l'accueil</a>
+</div>
+{% endblock %}

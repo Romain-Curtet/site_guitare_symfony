@@ -5,11 +5,16 @@
 {% block body %}
 <div class='container-list'>
     <h1 class='title'>Mon compte</h1>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="/admin">Vous êtes un administrateur, accéder au backoffice</a><br>
+    {% endif %}
     Bienvenue {{ app.user.firstname }} dans votre compte
     <hr>
-    <br>
-    <a href="{{ path('account_password') }}">Modifier mon mot de passe</a><br>
-    <a href="{{ path('account_address') }}">Ajouter mes adresses</a><br>
-    <a href="{{ path('account_order') }}">Mes commandes</a><br>
+    <div class='row'>
+        <div class='col-md-4'><a href="{{ path('account_password') }}">Modifier mon mot de passe</a></div>
+        <div class='col-md-4'><a href="{{ path('account_address') }}">Ajouter mes adresses</a></div>
+        <div class='col-md-4'><a href="{{ path('account_order') }}">Mes commandes</a></div>
+        </div>
+        <hr>
 </div>
 {% endblock %}

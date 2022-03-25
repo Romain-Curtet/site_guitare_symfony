@@ -96,16 +96,12 @@ main{
     color: #0066ff;
     padding: 10px;
     margin: 10px 0;
-}
-
-h1,
-h4,
-h5 {
     text-align: center;
 }
 
 h4 {
     padding-top: 10px;
+    text-align: center;
 }
 
 .list {
@@ -173,7 +169,17 @@ select {
     text-decoration: none;
 }
 
-.submit:hover, .action:hover, .add:hover {
+.btn-carousel {
+    background-color: #0066ff;
+    color: white;
+    font-size: 20px;
+    padding: 10px 10px;
+    border: 1px solid #0066ff;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.submit:hover, .action:hover, .add:hover, .btn-carousel:hover {
     background-color: white;
     color: #0066ff;
 }
@@ -232,6 +238,11 @@ select {
 
 .error {
     color: red;
+    background-color: white;
+}
+
+.notification {
+    color: #0066ff;
     background-color: white;
 }
 
@@ -298,21 +309,11 @@ select {
     padding-top: 10px;
 }
 
-
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
-/* Carousel base class */
-.carousel {
-    margin-bottom: 4rem;
-}
-/* Since positioning the image, we need to help out the caption */
 .carousel-caption {
     bottom: 3rem;
     z-index: 10;
 }
 
-/* Declare heights because of positioning of img element */
 .carousel-item {
     height: 32rem;
 }
@@ -346,7 +347,7 @@ select {
 ------------------------- */
 
 .featurette-divider {
-    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+    margin: 5rem 0;
 }
 
 /* Thin out the marketing headings */
@@ -354,6 +355,10 @@ select {
     font-weight: 300;
     line-height: 1;
     letter-spacing: -.05rem;
+}
+
+.featurette {
+    background-color: white;
 }
 
 

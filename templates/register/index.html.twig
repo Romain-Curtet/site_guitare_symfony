@@ -4,7 +4,15 @@
 
 {% block body %}
 <div class='container-list'>
-    <h1 class='title'>Créer un compte</h1>
+    <h1 class='title'>Inscritpion</h1>
+    {% if notification %}
+        <div class='notification'>{{ notification }}</div>
+        <hr>
+    {% elseif error %}
+        <div class='error'>{{ error }}</div>
+        <hr>
+    {% endif %}
+    
     {{ form_start(form, {'attr': {'class':'contact-form'}}) }}
     <div class='row'>
         <div class='col-md-6'>
@@ -23,18 +31,18 @@
         </div>
         <div class='col-md-6'>
             {{ form_label(form.email, 'Email', {'label_attr': {'class':'email'}}) }}
-            {{ form_widget(form.email, {'attr': {'id':'form-control'}}) }}
+            {{ form_widget(form.email, {'attr': {'class':'form-control'}}) }}
             <div class='error'>
                 {{ form_errors(form.email) }}
             </div>
         </div>
         <div class='col-md-6'>
             {{ form_label(form.password.first, 'Mot de passe', {'label_attr': {'class':'password'}}) }}
-            {{ form_widget(form.password.first, {'attr': {'id':'form-control'}}) }}
+            {{ form_widget(form.password.first, {'attr': {'class':'form-control'}}) }}
         </div>
         <div class='col-md-6'>
             {{ form_label(form.password.second, 'Confirmation mot de passe', {'label_attr': {'class':'confpswd'}}) }}
-            {{ form_widget(form.password.second, {'attr': {'id':'form-control'}}) }}
+            {{ form_widget(form.password.second, {'attr': {'class':'form-control'}}) }}
         </div>
         <div class='error'>
             {{ form_errors(form.password.first) }}
