@@ -20,7 +20,7 @@ class RegisterController extends AbstractController
      */
     public function index(Request $request, EntityManagerInterface $manager, UserPasswordHasherInterface $passwordHasher, UserRepository $userRepository): Response
     {
-        $notification = null;
+        $success = null;
         $error = null;
         $user = new User;
 
@@ -42,9 +42,9 @@ class RegisterController extends AbstractController
                 $manager->persist($user);
                 $manager->flush();
 
-                $notification = "Votre inscription s'est correctement déroulée. Vous pouvez dès à présent vous connecter à votre compte";
+                $success = "Votre inscription s'est correctement déroulée. Vous pouvez dès à présent vous connecter à votre compte";
             } else {
-                $error = "L'Email que vous avez renseigné existe déjà";
+                $error = "L'email que vous avez renseigné existe déjà";
             }
   
             $mail = new Mail();
@@ -54,7 +54,7 @@ class RegisterController extends AbstractController
 
         return $this->render('register/index.html.twig', [
             'form' => $form->createView(),
-            'notification' => $notification,
+            'success' => $success,
             'error' => $error,
         ]);
     }

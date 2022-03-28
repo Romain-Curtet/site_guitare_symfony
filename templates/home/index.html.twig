@@ -2,52 +2,52 @@
 {% block carousel %}{% endblock %}
 
 {% block body %}
-<div class='container-list' style='background-image: url(../img/background.png'>
+<div class='container-list back'>
 <h3 class='title'>Nos meilleurs ventes</h3>
-    <div class="row">
+    <div class='row'>
         {% for product in products %}
-            <div class='col-md-4 liste'>
-                {% include "product/single_product.html.twig" %}
+            <div class='col-xl-4 col-12 list'>
+                {% include 'product/single_product.html.twig' %}
             </div>
         {% endfor %}
     </div>
 
-    <hr class="featurette-divider">
+    <hr class='featurette-divider'>
 
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading">Faites retentir les décibels, <span class="text-muted">succès garanti.</span></h2>
-            <p class="lead">Notre large choix ravira chacun de nos client. Ici, tout le monde trouve ce qu'il souhaite.</p>
+    <div class='row featurette'>
+        <div class='col-md-7'>
+            <h2 class='featurette-heading'>Faites retentir les décibels, <span class='text-muted'>succès garanti.</span></h2>
+            <p class='lead'>Notre large choix ravira chacun de nos client. Ici, tout le monde trouve ce qu'il souhaite.</p>
         </div>
-        <div class="col-md-5">
+        <div class='col-md-5'>
             <img src='{{ asset('img/electric.jpg') }}' class='img-fluid' alt='Les meilleures guitares électriques'>
         </div>
     </div>
 
-    <hr class="featurette-divider">
+    <hr class='featurette-divider'>
 
-    <div class="row featurette">
-        <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Les plus grands luthiers <span class="text-muted">travaillent sur nos guitares.</span></h2>
-            <p class="lead">Nous avons à coeur d'offrir les meilleurs produits à nos clients.</p>
+    <div class='row featurette'>
+        <div class='col-md-7 order-md-2'>
+            <h2 class='featurette-heading'>Les plus grands luthiers <span class='text-muted'>travaillent sur nos guitares.</span></h2>
+            <p class='lead'>Nous avons à coeur d'offrir les meilleurs produits à nos clients.</p>
         </div>
-        <div class="col-md-5 order-md-1">
+        <div class='col-md-5 order-md-1'>
             <img src='{{ asset('img/acoustic2.jpg') }}' class='img-fluid' alt='Les meilleures guitares acoustiques'>
         </div>
     </div>
 
-    <hr class="featurette-divider">
+    <hr class='featurette-divider'>
 
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading">La qualité <span class="text-muted">est au coeur de notre métier</span></h2>
-            <p class="lead">N'hésitez pas à nous contacter. Notre équipe vous conseillera sur votre choix.</p>
+    <div class='row featurette'>
+        <div class='col-md-7'>
+            <h2 class='featurette-heading'>La qualité <span class='text-muted'>est au coeur de notre métier</span></h2>
+            <p class='lead'>N'hésitez pas à nous contacter. Notre équipe vous conseillera sur votre choix.</p>
         </div>
-        <div class="col-md-5">
+        <div class='col-md-5'>
             <img src='{{ asset('img/acoustic1.jpg') }}' class='img-fluid' alt='Les plus grands guitaristes se fournissent chez nous'>
         </div>
     </div>
 
-    <hr class="featurette-divider">
+    <hr class='featurette-divider'>
 </div>
 {% endblock %}

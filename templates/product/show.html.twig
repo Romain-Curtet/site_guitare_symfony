@@ -5,24 +5,24 @@
 {% block body %}
 <div class='container-list'>
     <div class='row'>
-        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 liste'>
-            <img src='../uploads/{{ product.illustration }}' alt='{{ product.name }}' class='img-fluid' height='200px'>
+        <div class='col-4 list'>
+            <img src='../uploads/{{ product.illustration }}' alt='{{ product.name }}' class='img-fluid product-show'>
         </div>
-        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 liste'>
+        <div class='col-4 list'>
             <h3 class='title'>{{product.name}}</h3>
             <h3 class='title'>Prix: {{ (product.price / 100)|number_format(2, ',', ' ')}} €</h3>
             <h3 class='title'>Stock: {{ product.stock}}</h3>
             <br>
-            <a href='{{ path('add_to_cart', {'id': product.id}) }}' type='submit' class='action'>Ajouter au panier</a>
+            <a href='{{ path('add_to_cart', {'id': product.id}) }}' type='submit' class='btn action'>Ajouter au panier</a>
         
         </div>
     </div>
     <hr>
     <h3 class='title'>Nos meilleurs ventes</h3>
-    <div class="row">
+    <div class='row'>
         {% for product in products %}
-            <div class='col-md-4 liste'>
-                {% include "product/single_product.html.twig" %}
+            <div class='col-xl-4 col-12 list'>
+                {% include 'product/single_product.html.twig' %}
             </div>
         {% endfor %}
     </div>

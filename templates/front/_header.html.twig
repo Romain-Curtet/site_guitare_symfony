@@ -1,31 +1,28 @@
 <header>
-    <div class="container-header">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="navbar-brand">
-                <a class="nav-link" aria-current="page" href="{{path('home')}}">Tout Pour La Gratte</a>
+    <div class='container-header'>
+        <nav class='navbar navbar-expand-lg navbar-dark'>
+            <div class='navbar-brand'>
+                <a class='nav-link' aria-current='page' href='{{path('home')}}'>Tout Pour La Gratte</a>
             </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+                <span class='navbar-toggler-icon'></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{path('products')}}">Nos produits</a>
+            <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+                <ul class='navbar-nav me-auto mb-2 mb-lg-0'>
+                    <li class='nav-item'>
+                        <a class='nav-link' aria-current='page' href='{{path('products')}}'>Nos produits</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="">Qui sommes-nous</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{path('contact')}}">Contact</a>
+                    <li class='nav-item'>
+                        <a class='nav-link' aria-current='page' href='{{path('contact')}}'>Contact</a>
                     </li>
                 </ul>
                 {% if app.user %}
-                    <a class="nav-link" href="{{path('account')}}">Mon compte ({{app.user.firstname}})</a> | <a class="nav-link" href="{{path('app_logout')}}">Deconnexion</a>
+                    <a class='nav-link' href='{{path('account')}}'>Mon compte ({{app.user.firstname}})</a> | <a class='nav-link' href='{{path('app_logout')}}'>Deconnexion</a>
                 {% else %}
-                    <a class="nav-link" href="{{path('app_login')}}">Connexion</a> | <a class="nav-link" href="{{path('register')}}">Inscription</a>
+                    <a class='nav-link' href='{{path('app_login')}}'>Connexion</a> | <a class='nav-link' href='{{path('register')}}'>Inscription</a>
                 {% endif %}
             </div>
-            <a href='{{ path('cart') }}'><img src='{{ asset('img/shopping-cart.png') }}' alt='Mon panier' style='padding:0 20px'></a>
+            <a href='{{ path('cart') }}'><img src='{{ asset('img/shopping-cart.png') }}' alt='Mon panier' class='cart'></a>
         </nav>
     </div>
 </header>

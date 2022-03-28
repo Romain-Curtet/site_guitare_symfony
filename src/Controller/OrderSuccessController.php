@@ -29,7 +29,7 @@ class OrderSuccessController extends AbstractController
            $manager->flush();
 
             $mail = new Mail();
-            $content = "Bonjour ".$order->getUser()->getFirstname()."<br>Merci pour votre commande";
+            $content = 'Bonjour '.$order->getUser()->getFirstname().'<br>Merci pour votre commande';
             $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Votre commande Tout Pour La Gratte est bien validée', $content);
         }
 

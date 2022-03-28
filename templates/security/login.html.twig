@@ -3,52 +3,46 @@
 {% block title %}Connexion - Tout Pour La Gratte{% endblock %}
 
 {% block body %}
-<div class="container-list">
-    <form class="contact-form" method="post">
+<div class='container-list'>
+    <form class='contact-form' method='post'>
         {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            <div class='alert alert-danger'>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
 
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        <h1 class='title'>Se connecter</h1>
+        <div class='row'>
+            <div class='col-6'>
+                <label for='inputEmail' class='form-label'>Email</label>
+                <input type='email' value='{{ last_username }}' name='email' id='inputEmail' class='form-control' autocomplete='email' required autofocus placeholder='Votre Email'>
             </div>
-        {% endif %}
-
-        <h1 class="title">Se connecter</h1>
-        <div class="row">
-            <div class="col-6 cols-xs-12">
-                <label for="inputEmail" class="email">Email</label>
-                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus placeholder="Votre Email">
-            </div>
-            <div class="col-6 cols-xs-12">
-                <label for="inputPassword" class="password">Mot de passe</label>
-                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required placeholder="Votre mot de passe">
-                <div class="password-icon">
-                    <i data-feather="eye"></i>
-                    <i data-feather="eye-off"></i>
+            <div class='col-6'>
+                <label for='inputPassword' class='form-label'>Mot de passe</label>
+                <input type='password' name='password' id='inputPassword' class='form-control' autocomplete='current-password' required placeholder='Votre mot de passe'>
+                <div class='password-icon'>
+                    <i data-feather='eye'></i>
+                    <i data-feather='eye-off'></i>
                 </div>
             </div>
 
-            <input type="hidden" name="_csrf_token"
-                value="{{ csrf_token('authenticate') }}"
+            <input type='hidden' name='_csrf_token'
+                value='{{ csrf_token('authenticate') }}'
             >
 
             {#
                 Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
                 See https://symfony.com/doc/current/security/remember_me.html
 
-                <div class="checkbox mb-3">
+                <div class='checkbox mb-3'>
                     <label>
-                        <input type="checkbox" name="_remember_me"> Remember me
+                        <input type='checkbox' name='_remember_me'> Remember me
                     </label>
                 </div>
             #}
-            <div class="col-12">
-                <input class="submit" type="submit" value="Connexion">  
+            <div class='col-12'>
+                <input class='btn submit' type='submit' value='Connexion'>  
             </div>
         </div>
-        <p>Ou souhaitez-vous <a href='{{ path('register') }}'>créer un compte?</p>
+        <p>Ou souhaitez-vous <a href='{{ path('register') }}'>créer un compte?</a></p>
     </form>
 </div>
 {% endblock %}
@@ -57,20 +51,20 @@
 <script>
     feather.replace();
 
-    const eye = document.querySelector(".feather-eye");
-    const eyeoff = document.querySelector(".feather-eye-off");
-    const passwordField = document.querySelector("input[type=password]");
+    const eye = document.querySelector('.feather-eye');
+    const eyeoff = document.querySelector('.feather-eye-off');
+    const passwordField = document.querySelector('input[type=password]');
 
-    eye.addEventListener("click", () => {
-        eye.style.display = "none";
-        eyeoff.style.display = "block";
-        passwordField.type = "text";
+    eye.addEventListener('click', () => {
+        eye.style.display = 'none';
+        eyeoff.style.display = 'block';
+        passwordField.type = 'text';
     });
 
-    eyeoff.addEventListener("click", () => {
-        eyeoff.style.display = "none";
-        eye.style.display = "block";
-        passwordField.type = "password";
+    eyeoff.addEventListener('click', () => {
+        eyeoff.style.display = 'none';
+        eye.style.display = 'block';
+        passwordField.type = 'password';
     });
     </script>
 {% endblock %}

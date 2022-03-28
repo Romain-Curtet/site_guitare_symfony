@@ -6,13 +6,13 @@
 <div class='container-list'>
     <h1 class='title'>Mes commandes</h1>
     <br>
-    <a href="{{ path('account') }}">Retour</a><br>
+    <a href='{{ path('account') }}'>Retourner à mon compte</a><br>
     <br>
     {% if orders|length == 0 %}
         <p class='text-center'>Vous n'avez pas encore ajouté passé de commande sur Tout pour La Gratte</p>
     {% else %}
-    <div class='col-md-10 list'>
-        <table class='table_order'>
+    <div class='col-10 list'>
+        <table class='table-order'>
             <thead>
                 <tr>
                     <th>Référence</th>

@@ -17,11 +17,13 @@ class ContactController extends AbstractController
      */
     public function index(Request $request, EntityManagerInterface $manager): Response
     {
+        $success = null;
+
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->addFlash('notice', 'Merci de nous avoir contacté. Notre équipe va vous répondre dans les meilleurs délais.');
+            $success = 'Merci de nous avoir contacté. Notre équipe va vous répondre dans les meilleurs délais.';
             
             $mail = new Mail();
             $content = 'Bonjour '.$form->get('firstname')->getData().' '.$form->get('lastname')->getData().'.<br>
@@ -38,6 +40,7 @@ class ContactController extends AbstractController
             
         return $this->render('contact/index.html.twig', [
             'form' => $form->createView(),
+            'success' => $success,
         ]);
     }
 }

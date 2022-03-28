@@ -5,49 +5,49 @@
 {% block body %}
 <div class='container-list'>
     <h1 class='title'>Gérer mes adresses</h1>
-    <a href="{{ path('account_address') }}">Retour</a><br>
+    <a href='{{ path('account_address') }}'>Retour à mes adresses</a><br>
     <hr>
     <br>
     {{ form_start(form, {'attr': {'class':'contact-form'}}) }}
     <div class='row'>
         <div class='col-md-12'>
-            {{ form_label(form.name, 'Quel nom souhaitez-vous donner à votre addresse?', {'label_attr': {'class':'login'}}) }}
-            {{ form_widget(form.name, {'attr': {'class':'form-control'}}) }}
+            {{ form_label(form.name, 'Quel nom souhaitez-vous donner à votre adresse?', {'label_attr': {'class':'form-label'}}) }}
+            {{ form_widget(form.name, {'attr': {'class':'form-control', 'placeholder':'Nommez votre adresse'}}) }}
         </div>
         <div class='col-md-6'>
-            {{ form_label(form.firstname, 'Prénom', {'label_attr': {'class':'login'}}) }}
-            {{ form_widget(form.firstname, {'attr': {'class':'form-control'}}) }}
+            {{ form_label(form.firstname, 'Prénom', {'label_attr': {'class':'form-label'}}) }}
+            {{ form_widget(form.firstname, {'attr': {'class':'form-control', 'placeholder':'Votre prénom'}}) }}
         </div>
         <div class='col-md-6'>
-            {{ form_label(form.lastname, 'Nom', {'label_attr': {'class':'login'}}) }}
-            {{ form_widget(form.lastname, {'attr': {'class':'form-control'}}) }}
+            {{ form_label(form.lastname, 'Nom', {'label_attr': {'class':'form-label'}}) }}
+            {{ form_widget(form.lastname, {'attr': {'class':'form-control', 'placeholder':'Votre nom'}}) }}
         </div>
         <div class='col-md-6'>
-            {{ form_label(form.company, 'Société', {'label_attr': {'class':'login'}}) }}
-            {{ form_widget(form.company, {'attr': {'id':'form-control'}}) }}
+            {{ form_label(form.company, 'Société', {'label_attr': {'class':'form-label'}}) }}
+            {{ form_widget(form.company, {'attr': {'class':'form-control', 'placeholder':'Votre compagnie (facultatif)'}}) }}
         </div>
         <div class='col-md-6'>
-            {{ form_label(form.address, 'Adresse', {'label_attr': {'class':'login'}}) }}
-            {{ form_widget(form.address, {'attr': {'id':'form-control'}}) }}
+            {{ form_label(form.address, 'Adresse', {'label_attr': {'class':'form-label'}}) }}
+            {{ form_widget(form.address, {'attr': {'class':'form-control', 'placeholder':'8 rue des lilas'}}) }}
         </div>
         <div class='col-md-6'>
-            {{ form_label(form.postal, 'Code postal', {'label_attr': {'class':'login'}}) }}
-            {{ form_widget(form.postal, {'attr': {'id':'form-control'}}) }}
+            {{ form_label(form.postal, 'Code postal', {'label_attr': {'class':'form-label'}}) }}
+            {{ form_widget(form.postal, {'attr': {'class':'form-control', 'placeholder':'Votre code postal'}}) }}
         </div>
         <div class='col-md-6'>
-            {{ form_label(form.city, 'Ville', {'label_attr': {'class':'login'}}) }}
-            {{ form_widget(form.city, {'attr': {'id':'form-control'}}) }}
+            {{ form_label(form.city, 'Ville', {'label_attr': {'class':'form-label'}}) }}
+            {{ form_widget(form.city, {'attr': {'class':'form-control', 'placeholder':'Votre ville'}}) }}
         </div>
         <div class='col-md-6'>
-            {{ form_label(form.country, 'Pays', {'label_attr': {'class':'login'}}) }}
-            {{ form_widget(form.country, {'attr': {'id':'form-control'}}) }}
+            {{ form_label(form.country, 'Pays', {'label_attr': {'class':'form-label'}}) }}
+            {{ form_widget(form.country, {'attr': {'class':'form-control'}}) }}
         </div>
         <div class='col-md-6'>
-            {{ form_label(form.phone, 'Numéro de téléphone', {'label_attr': {'class':'login'}}) }}
-            {{ form_widget(form.phone, {'attr': {'id':'form-control'}}) }}
+            {{ form_label(form.phone, 'Numéro de téléphone', {'label_attr': {'class':'form-label'}}) }}
+            {{ form_widget(form.phone, {'attr': {'class':'form-control', 'placeholder':'Votre numéro de téléphone'}}) }}
         </div>
-        <div class="col-md-12">
-            {{ form_widget(form.submit, {'attr': {'class':'submit'}}) }}
+        <div class='col-md-12'>
+            {{ form_widget(form.submit, {'attr': {'class':'btn submit'}}) }}
         </div>
         {{ form_rest(form) }}
     </div>

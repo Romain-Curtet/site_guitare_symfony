@@ -5,7 +5,7 @@
 {% block body %}
 <div class='container-list'>
     <h2 class='title'>Mon Panier</h2>
-    <div class='col-lg-10 list'>
+    <div class='col-10 list'>
     {% if cart|length > 0 %}
         <table class='table'>
             <thead>
@@ -21,10 +21,10 @@
             {% set total = null %}
             {% for product in cart %}
                 <tr>
-                    <td id='img'><img src='uploads/{{ product.product.illustration }}' alt='{{ product.product.name }}' height='100px'></td>
+                    <td><img src='../uploads/{{ product.product.illustration }}' alt='{{ product.product.name }}' class='product'</td>
                     <td class='name'>{{ product.product.name }}</td>
                     <td>
-                        <a href='{{ path('decrease_to_cart', {'id': product.product.id}) }}'><img src='{{ asset('img/moins.png') }}' alt='Retirer un produit' height='12px'></a>  X {{ product.quantity }}  <a href='{{ path('add_to_cart', {'id': product.product.id}) }}'><img src='{{ asset('img/plus.png') }}' alt='Ajouter un produit' height='12px'></a>
+                        <a href='{{ path('decrease_to_cart', {'id': product.product.id}) }}'><img src='{{ asset('img/moins.png') }}' alt='Retirer un produit' class='product-quantity'></a>  X {{ product.quantity }}  <a href='{{ path('add_to_cart', {'id': product.product.id}) }}'><img src='{{ asset('img/plus.png') }}' alt='Ajouter un produit' class='product-quantity'></a>
                     </td>
                     <td>{{ (product.product.price / 100)|number_format(2, ',', ' ')}} €</td>
                     <td>{{ (product.product.price * product.quantity / 100)|number_format(2, ',', ' ') }}</td>
@@ -36,10 +36,9 @@
         </table>
     </div>
     <div>
-        <h4 class='title'>Nombre de produits : {{ cart|length }}<h4>
-        <h4 class='title'>Total de mon panier : {{ (total / 100)|number_format(2, ',', ' ') }}<h4>
-        <br><br>
-        <a href='{{ path('order') }}' class='submit'>Valider mon panier</a>
+        <h4 class='title'>Nombre de produits : {{ cart|length }}</h4>
+        <h4 class='title'>Total de mon panier : {{ (total / 100)|number_format(2, ',', ' ') }}</h4>
+        <a href='{{ path('order') }}' class='btn submit'>Valider mon panier</a>
     </div>
     {% else %}
         <h4 class='title'>Votre panier est vide</h4>

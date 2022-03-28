@@ -6,15 +6,33 @@
 <div class='container-list'>
     <h1 class='title'>Mon compte</h1>
     {% if is_granted('ROLE_ADMIN') %}
-        <a href="/admin">Vous êtes un administrateur, accéder au backoffice</a><br>
+        <a href='/admin' target='_blank'>Vous êtes un administrateur, accéder au backoffice</a><br>
     {% endif %}
     Bienvenue {{ app.user.firstname }} dans votre compte
     <hr>
     <div class='row'>
-        <div class='col-md-4'><a href="{{ path('account_password') }}">Modifier mon mot de passe</a></div>
-        <div class='col-md-4'><a href="{{ path('account_address') }}">Ajouter mes adresses</a></div>
-        <div class='col-md-4'><a href="{{ path('account_order') }}">Mes commandes</a></div>
+        <div class='col-xl-4 col-md-6 col-12'>
+            <div class='card'>
+                <div class='card-body'>
+                    <a href='{{ path('account_password') }}'><img src='{{ asset('img/mot-de-passe.png') }}' class='img-account' alt='Modifier mon mot de passe'>Modifier mon mot de passe</a>
+                </div>
+            </div>
         </div>
-        <hr>
+        <div class='col-xl-4 col-md-6 col-12'>
+            <div class='card'>
+                <div class='card-body'>
+                    <a href='{{ path('account_address') }}'><img src='{{ asset('img/carnet-dadresses.png') }}' class='img-account' alt='Ajouter mes adresses'>Ajouter mes adresses</a>
+                </div>
+            </div>
+        </div>
+        <div class='col-xl-4 col-md-6 col-12'>
+            <div class='card'>
+                <div class='card-body'>
+                    <a href='{{ path('account_order') }}'><img src='{{ asset('img/purchase.png') }}' class='img-account' alt='Mes commandes'> Mes commandes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
 </div>
 {% endblock %}

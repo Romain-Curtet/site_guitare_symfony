@@ -11,14 +11,14 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"></script>
         <script src="https://js.stripe.com/v3/"></script>
         {% block stylesheets %}
-            {# {{ encore_entry_link_tags('app') }} #}
+            {# {{ encore_entry_link_tags("app") }} #}
         {% endblock %}
     </head>
 
     <body>
    {% include "front/_header.html.twig" %}
    <main role="main">
-   {% if block('carousel') is defined %}
+   {% if block("carousel") is defined %}
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             {% for key,header in headers %}
@@ -27,12 +27,12 @@
         </div>
         <div class="carousel-inner">
             {% for key,header in headers %}
-            <div class="carousel-item {% if key == 0 %}active{% endif %}" style='background-image: url(../uploads/{{ header.illustration }}); background-size: cover;'>
+            <div class="carousel-item {% if key == 0 %}active{% endif %}" style="background-image: url(../uploads/{{ header.illustration }})">
                 <div class="container">
-                    <div class="carousel-caption" style='text-align: left;'>
+                    <div class="carousel-caption">
                         <h1>{{ header.title }}</h1>
                         <p>{{ header.content }}</p>
-                        <p><a class="btn btn-lg btn-carousel" href="{{ header.btnUrl }}" role="button">{{ header.btnTitle }}</a></p>
+                        <p><a class="btn btn-lg" href="{{ header.btnUrl }}" role="button">{{ header.btnTitle }}</a></p>
                     </div>
                 </div>
             </div>
@@ -54,6 +54,6 @@
     </body>
 
     {% block javascripts %}
-        {# {{ encore_entry_script_tags('app') }} #}
+        {# {{ encore_entry_script_tags("app") }} #}
     {% endblock %}
 </html>

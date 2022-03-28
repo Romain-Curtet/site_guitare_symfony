@@ -23,38 +23,23 @@ class RegisterType extends AbstractType
                     'min' => 10,
                     'max' => 60,
                 ]),
-                'attr' => [
-                    'placeholder' => "Votre email"
-                ]
             ])
             ->add('lastname', TextType::class, [
                 'constraints' => new Length([
                     'min' => 2,
                     'max' => 30,
                 ]),
-                'attr' => [
-                    'placeholder' => "Votre nom"
-                ]
             ])
             ->add('firstname', TextType::class, [
                 'constraints' => new Length([
                     'min' => 2,
                     'max' => 30,
                 ]),
-                'attr' => [
-                    'placeholder' => "Votre prénom"
-                ]
             ])
             ->add('password', RepeatedType::class, [
                 'type' =>PasswordType::class,
-                'invalid_message' => 'Le mot de passe et la confirmation doivent être identiques',
+                'invalid_message' => "Le mot de passe et la confirmation doivent être identiques",
                 'required' => true,
-                'first_options' =>['attr' => [
-                    'placeholder' => "Votre mot de passe"
-                ]],
-                'second_options' =>[ 'attr' => [
-                    'placeholder' => "Confirmez votre mot de passe"
-                ]],
             ])
             ->add('submit', SubmitType::class , [
                 'label' => "S'inscrire"

@@ -17,50 +17,23 @@ class AddressType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'attr' => [
-                    'placeholder' => 'Nommez votre adresse'
-                ]
             ])
             ->add('firstname', TextType::class, [
-                'attr' => [
-                    'placeholder' => 'Entrez votre prénom'
-                ]
             ])
             ->add('lastname', TextType::class, [
-                'attr' => [
-                    'placeholder' => 'Entrez votre nom'
-                ]
             ])
             ->add('company', TextType::class, [
-                'attr' => [
-                    'placeholder' => '(facultatif) Entrez le nom de votre société'
-                ],
                 'required' =>false,
             ])
             ->add('address', TextType::class, [
-                'attr' => [
-                    'placeholder' => '8 rue des lilas'
-                ]
             ])
             ->add('postal', TextType::class, [
-                'attr' => [
-                    'placeholder' => 'Entrez votre code postal'
-                ]
             ])
             ->add('city', TextType::class, [
-                'attr' => [
-                    'placeholder' => 'Entrez votre ville'
-                ]
             ])
             ->add('country', CountryType::class, [
-                'attr' => [
-                    'placeholder' => 'Entrez votre pays'
-                ]
             ])
             ->add('phone', TelType::class, [
-                'attr' => [
-                    'placeholder' => 'Entrez votre numéro de téléphone'
-                ]
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider',

@@ -8,12 +8,12 @@
     <p>Vérifiez vos informations avant de payer votre commande</p>
     <hr>
     <div class='row'>
-        <div class='col-md-6'>
+        <div class='col-sm-6'>
             <h5 class='title'>Mon adresse : </h5>
             <div id='order_summary'>
                 {{ delivery|raw}}
             </div>
-            <hr>
+            <br>
             <h5 class='title'>Mon transporteur : </h5>
             <div id='order_summary'>
                 {{ carrier.name}}
@@ -21,14 +21,14 @@
                 {{ (carrier.price / 100)|number_format(2, ',', ' ') }} €
             </div>
         </div>
-        <div class='col-md-6'>
+        <div class='col-sm-6'>
             <h5 class='title'>Ma commande</h5>
             <div id='order_summary'>
             {% set total = null %}
                 {% for key,product in cart %}
                 <div class='row {% if key > 0 %}mt-4{% endif %}'>
                     <div class='col-md-3'>
-                        <img src='../uploads/{{ product.product.illustration }}' alt='{{ product.product.name }}' height='100px'>
+                        <img src='../uploads/{{ product.product.illustration }}' alt='{{ product.product.name }}' class='product'>
                     </div>
                     <div class='col-md-6 my-auto'>
                         {{ product.product.name }}
@@ -49,8 +49,8 @@
             <hr>
             <strong>Total : </strong>{{ ((total / 100) + (carrier.price / 100))|number_format(2, ',', ' ') }} €
             <br><br>
-            <form action="/commande/create-session/{{ reference }}" method="POST">
-                <button class='submit' type="submit" id="checkout-button">Payer | {{ ((total / 100) + (carrier.price / 100))|number_format(2, ',', ' ') }} €</button>
+            <form action='/commande/create-session/{{ reference }}' method='POST'>
+                <button class='btn submit' type='submit' id='checkout-button'>Payer | {{ ((total / 100) + (carrier.price / 100))|number_format(2, ',', ' ') }} €</button>
             </form>
         </div>
     </div>

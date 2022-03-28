@@ -6,10 +6,10 @@
 <div class='container-list'>
     <h1 class='title'>Ma commande n°{{ order.reference }}</h1>
     <br>
-    <a href="{{ path('account_order') }}">Retour</a><br>
+    <a href='{{ path('account_order') }}'>Retour à mes commandes</a><br>
     <br>
     <hr>
-    <div class='col-md-8 list'>
+    <div class='col-8 list'>
         <strong>Statut de la commande : </strong>
             {% if order.state == 1 %}
                 Commande validée
@@ -25,7 +25,7 @@
         <hr>
         <strong>Détails:</strong>
         
-        <table class='table_order'>
+        <table class='table-order'>
             <thead>
                 <tr>
                     <th>Produit</th>
@@ -48,7 +48,7 @@
         <div>
             <strong>Sous-total :</strong> {{ (order.getTotal() / 100)|number_format(2, ',', ' ')}} €<br>
             <strong>Livraison :</strong> {{ (order.carrierPrice / 100)|number_format(2, ',', ' ')}} €<br>
-            <strong>Total :</strong> {{ ((order.carrierPrice + order.getTotal) / 100)|number_format(2, ',', ' ')}} €<br>
+            <strong>Total :</strong> {{ ((order.carrierPrice + order.getTotal) / 100)|number_format(2, ',', ' ')}} €<br><br>
         </div>
     </div>
 </div> 
