@@ -27,7 +27,7 @@
                         <a href='{{ path('decrease_to_cart', {'id': product.product.id}) }}'><img src='{{ asset('img/moins.png') }}' alt='Retirer un produit' class='product-quantity'></a>  X {{ product.quantity }}  <a href='{{ path('add_to_cart', {'id': product.product.id}) }}'><img src='{{ asset('img/plus.png') }}' alt='Ajouter un produit' class='product-quantity'></a>
                     </td>
                     <td>{{ (product.product.price / 100)|number_format(2, ',', ' ')}} €</td>
-                    <td>{{ (product.product.price * product.quantity / 100)|number_format(2, ',', ' ') }}</td>
+                    <td>{{ (product.product.price * product.quantity / 100)|number_format(2, ',', ' ') }} €</td>
                     <td><a href='{{ path('delete_to_cart', {'id': product.product.id}) }}'><img src='{{ asset('img/corbeille.png') }}' alt='Supprimer mon produit'></a></td>
                 </tr>
                 {% set total = total + (product.product.price * product.quantity) %}
@@ -37,7 +37,7 @@
     </div>
     <div>
         <h4 class='title'>Nombre de produits : {{ cart|length }}</h4>
-        <h4 class='title'>Total de mon panier : {{ (total / 100)|number_format(2, ',', ' ') }}</h4>
+        <h4 class='title'>Total de mon panier : {{ (total / 100)|number_format(2, ',', ' ') }} €</h4>
         <a href='{{ path('order') }}' class='btn submit'>Valider mon panier</a>
     </div>
     {% else %}

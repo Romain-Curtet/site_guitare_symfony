@@ -19,7 +19,7 @@ class StripeController extends AbstractController
     public function index($reference, OrderRepository $orderRepository, ProductRepository $productRepository, EntityManagerInterface $manager): Response
     {
         $products_for_stripe = [];
-        $YOUR_DOMAIN = 'https://127.0.0.1:8000';
+        $YOUR_DOMAIN = 'http://toutpourlagratte.romaincurtet.com';
 
         $order = $orderRepository->findOneByReference($reference);
 

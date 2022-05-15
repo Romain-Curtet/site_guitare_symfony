@@ -32,7 +32,7 @@ class ContactController extends AbstractController
 
             $mail = new Mail();
             $content = 'Bonjour.<br>
-            Vous avez reçu un mail de la part de '.$form->get('firstname')->getData().' '.$form->get('lastname')->getData().' ('.$form->get('lastname')->getData().')<br>'.$form->get('content')->getData();
+            Vous avez reçu un mail de la part de '.$form->get('firstname')->getData().' '.$form->get('lastname')->getData().'<br>'.$form->get('content')->getData();
             $mail->send('contact@romaincurtet.com', 'Tout Pour La Gratte', 'Vous avez reçu une nouvelle demande de contact', $content);
 
         }
