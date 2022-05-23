@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Classe\Mail;
 use App\Form\ContactType;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,7 +14,7 @@ class ContactController extends AbstractController
     /**
      * @Route("/nous-contacter", name="contact")
      */
-    public function index(Request $request, EntityManagerInterface $manager): Response
+    public function index(Request $request): Response
     {
         $success = null;
 
