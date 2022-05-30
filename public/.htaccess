@@ -45,12 +45,8 @@ DirectoryIndex index.php
     # - disable this feature by commenting the following 2 lines or
     # - use Apache >= 2.3.9 and replace all L flags by END flags and remove the
     #   following RewriteCond (best solution)
-    # RewriteCond %{ENV:REDIRECT_STATUS} =""
-    RewriteCond %{ENV:REDIRECT_STATUS} 200 [OR]
-    RewriteCond %{REQUEST_FILENAME} -f [OR]
-    RewriteCond %{REQUEST_FILENAME} -d
-    RewriteRule ^ - [L]
-    # RewriteRule ^index\.php(?:/(.*)|$) %{ENV:BASE}/$1 [R=301,L]
+    RewriteCond %{ENV:REDIRECT_STATUS} =""
+    RewriteRule ^index\.php(?:/(.*)|$) %{ENV:BASE}/$1 [R=301,L]
 
     # If the requested filename exists, simply serve it.
     # We only want to let Apache serve files and not directories.
@@ -59,5 +55,12 @@ DirectoryIndex index.php
     RewriteRule ^ %{ENV:BASE}/index.php [L]
 </IfModule>
 
-# SetEnv APP_ENV prod 
-# SetEnv DATABASE_URL "mysql://romaincu_romaincu:Curt290887@toutpourlagratte.# # romaincurtet.com/romaincu_site_guitare_symfony?"
+<IfModule !mod_rewrite.c>
+    <IfModule mod_alias.c>
+        # When mod_rewrite is not available, we instruct a temporary redirect of
+        # the start page to the front controller explicitly so that the website
+        # and the generated links can still be used.
+        RedirectMatch 307 ^/$ /index.php/
+        # RedirectTemp cannot be used instead
+    </IfModule>
+</IfModule>
